@@ -1,0 +1,20 @@
+.Mobile{
+    background-color:#dadbd3;
+    height: 100vh;
+    display: grid;
+    place-items: center;
+}
+.mobile_body{
+    display:flex;
+    margin-top: -50px;
+    width:30vh;
+    height: 34vh;
+    background-color: #ededed;
+    box-shadow: -1px 4px 20px -6px rgba(0,0,0,0.2);
+    justify-content: space-around;
+    align-items: center;
+    font-size: 10px;
+    flex-direction: column;
+    text-align: center;
+    text-transform: uppercase;
+}

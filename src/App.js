@@ -6,33 +6,46 @@ import Chat from './Chat'
 import {BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import {useState} from "react";
 import Login from "./Login";
+import {BrowserView, MobileView} from 'react-device-detect';
 import {useStateValue} from "./StateProvider";
+import Mobile from './mobile'
 function App() {
     const [{user},dispatch]=useStateValue();
 
   return (
+    <div>
+        <BrowserView>
+            <div className="App">
+                <div className='app__body'>
 
-    <div className="App">
-        <div className='app__body'>
-        {!user ? (
-            <Login/>
-        ):
+                            {!user ? (
+                            <Login/>
+                        ):
 
-        <Router>
+                        <Router>
 
-                <Sidebar/>
-            <Switch>
-                <Route path='/rooms/:roomid/'>
-                    <Chat/>
-                </Route>
-                <Route path="/">
-                    {/*<Chat/>*/}
-                </Route>
+                                <Sidebar/>
+                            <Switch>
+                                <Route path='/rooms/:roomid/'>
+                                    <Chat/>
+                                </Route>
+                                <Route path="/">
+                                    {/*<Chat/>*/}
+                                </Route>
 
 
-            </Switch>
-        </Router>}
-      </div>
+                            </Switch>
+                        </Router>}
+
+
+              </div>
+            </div>
+        </BrowserView>
+        <MobileView>
+
+            <Mobile/>
+        </MobileView>
+
     </div>
   );
 }
